@@ -1,0 +1,11 @@
+case 'setthumb':
+			        if (!mek.key.fromMe && !isOwner && !isCreator) return reply(lang.onlyOwner())
+			        if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length == 0) {
+		          	boij = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+					delb = await alpha.downloadMediaMessage(boij)
+					fs.writeFileSync(`./image/${thumbnail}`, delb)
+					fakestatus('Sukses')
+		        	} else {
+		            fakegroup(`Kirim gambar dengan caption ${prefix}sethumb`)
+		          	}
+					break
